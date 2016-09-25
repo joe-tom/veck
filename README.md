@@ -13,7 +13,7 @@ var myBigVector = V('3i+2j-8k')
 ```
 
 ### Method 2: Using an array
-Veck can also create a vector using an array, as the order of an array matters, this is the preferred method for creating vectors with Veck.
+Veck can also create a vector using an array. This is the preferred method for creating vectors with Veck.
 ```js
 var V = require('veck')
 
@@ -28,7 +28,7 @@ var V = require('veck')
 var myBestVector({i: 2.3, j: 10.2, k: 8.9})
 ```
 ### Method 4: Using arguments
-Veck can create a vector by accepting a multitude of arguments. Note: _(This **MUST** be used with new. This will **NOT** work without creating a new Veck object) 
+Veck can create a vector by accepting a multitude of arguments. Note: (This **MUST** be used with new. This will **NOT** work without creating a new Veck object
 ```js
 var V = require('veck')
 
