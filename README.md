@@ -17,8 +17,7 @@ Veck can also create a vector using an array. This is the preferred method for c
 ```js
 var V = require('veck')
 
-var myBestVector = V([1,2,3])
-//Same as 1i+2j+3k
+var myBestVector = V([1,0,1,12,4,92,1,1])
 ```
 ### Method 3: Using an object
 Similar to an array, you can create a vector with an object. However, the object keys **MUST** be letters, order does not matter in terms of the object.
