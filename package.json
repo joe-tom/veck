@@ -1,5 +1,5 @@
 {
-  "name": "vecky",
+  "name": "veck",
   "version": "0.0.1",
   "description": "A MultiDimensional Vector math library",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joe-tom/vecky.git"
+    "url": "git+https://github.com/joe-tom/veck.git"
   },
   "keywords": [
     "Vector",
@@ -18,7 +18,16 @@
   "author": "Joe Thomas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joe-tom/vecky/issues"
+    "url": "https://github.com/joe-tom/veck/issues"
   },
-  "homepage": "https://github.com/joe-tom/vecky#readme"
+  "homepage": "https://github.com/joe-tom/veck#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "assert": "^1.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  }
 }

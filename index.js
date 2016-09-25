@@ -1,32 +1,46 @@
+
 function Vecky (vector) {
-  if (!(this instanceof Vecky)) return new Vecky(vector)
+  if (!(this instanceof Vecky)) {
+    return new (Function.prototype.bind.apply(Vecky,arguments))
+  } 
 
   this.vector = []
   switch (typeof vector) {
     case 'number':
-
-      break
+    this.vector = arguments
+    break
     case 'string':
-      var units = vector.replace(/ /g, '').split(/(\+|\-)(?=.)/g).filter((i) => (i))
-      units.sort(function (a, b) {
-        return (a < b ? -1 : (a > b ? 1 : 0))
-      })
-      for (var i = 0; i < units.length; i++) {
-
-      }
-      break
-    case 'object':
-      if (vector instanceof Array) {
-        this.vector = vector
+    var units = vector.replace(/ /g, '').split(/(\+|\-)(?=.)/g).filter((i) => (i))
+    units.sort(function (a, b) {
+      return (a < b ? -1 : (a > b ? 1 : 0))
+    })
+    var map = {}
+    for (var i = 0; i < units.length; i++) {
+      var char = units[i]
+      if (char == '-') {
+        units[i + 1] = '-' + units[i + 1]
+      } else if (char == '+') {
+        continue
       } else {
-        Object.keys(vector).sort().forEach(function (key) {
-          this.vector[key] = vector[key]
-        })
+        map[char[char.length - 1]] = parseFloat(char)
       }
-      break
+      Object.keys(map).sort().forEach(function (key) {
+        this.vector[key] = vector[key]
+      })
+    }
+    break
+    case 'object':
+    if (vector instanceof Array) {
+      this.vector = vector
+    } else {
+      Object.keys(vector).sort().forEach(function (key) {
+        this.vector[key] = vector[key]
+      })
+    }
+    break
   }
 
-  this.dimension = vectorArray.length
+  this.dimension = vector.length
 }
 
 Vecky.prototype.times = function (val) {
