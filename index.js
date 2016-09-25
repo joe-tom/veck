@@ -1,9 +1,9 @@
 
 function Vecky (vector) {
   if (!(this instanceof Vecky)) {
-    return new (Function.prototype.bind.apply(Vecky,arguments))
+    return new Vecky(vector)
   } 
-
+  var _this = this
   this.vector = []
   switch (typeof vector) {
     case 'number':
@@ -11,36 +11,34 @@ function Vecky (vector) {
     break
     case 'string':
     var units = vector.replace(/ /g, '').split(/(\+|\-)(?=.)/g).filter((i) => (i))
-    units.sort(function (a, b) {
-      return (a < b ? -1 : (a > b ? 1 : 0))
-    })
     var map = {}
     for (var i = 0; i < units.length; i++) {
       var char = units[i]
       if (char == '-') {
         units[i + 1] = '-' + units[i + 1]
+        continue
       } else if (char == '+') {
         continue
       } else {
         map[char[char.length - 1]] = parseFloat(char)
       }
-      Object.keys(map).sort().forEach(function (key) {
-        this.vector[key] = vector[key]
-      })
     }
+    Object.keys(map).sort().forEach(function (key) {
+      _this.vector.push(map[key])
+    })
     break
     case 'object':
     if (vector instanceof Array) {
       this.vector = vector
     } else {
       Object.keys(vector).sort().forEach(function (key) {
-        this.vector[key] = vector[key]
+        _this.vector.push(vector[key])
       })
     }
     break
   }
 
-  this.dimension = vector.length
+  this.dimension = this.vector.length
 }
 
 Vecky.prototype.times = function (val) {
@@ -78,3 +76,4 @@ Vecky.prototype.magnitude = function () {
 Vecky.prototype.valueOf = function () {
   return this.magnitude()
 }
+module.exports = Vecky
