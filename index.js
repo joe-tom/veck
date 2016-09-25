@@ -29,6 +29,28 @@ function Vecky (vector) {
   this.dimension = vectorArray.length
 }
 
+Vecky.prototype.times = function (val) {
+  for (var i = 0, ii = this.dimension; i < ii; i++) {
+    this.vector[i] = this.vector[i] * val
+  }
+}
+
+Vecky.prototype.divide = function (val) {
+  for (var i = 0, ii = this.dimension; i < ii; i++) {
+    this.vector[i] = this.vector[i] / val
+  }
+}
+
+Vecky.prototype.proj = function (b) {
+  return b.times(this.dot(b).divide(b.dot(b)))
+}
+
+Vecky.prototype.normalize = function () {
+  var mag = this.magnitude()
+  for (var i = 0, ii = this.dimension; i < ii; i++) {
+    this.vector[i] = this.vector[i] / mag
+  }
+}
 
 Vecky.prototype.magnitude = function () {
   var sum = 0
@@ -38,7 +60,6 @@ Vecky.prototype.magnitude = function () {
 
   return Math.sqrt(sum)
 }
-
 
 Vecky.prototype.valueOf = function () {
   return this.magnitude()
