@@ -2,35 +2,43 @@
 A multidimensional vector math library for JS
 
 ## Vector Construction
-There are four ways to construct a vector with Veck.
-
-### Method 1: Using unit vectors
-Veck accepts a unit vector as a unit vector string. Note: _(Veck does not have a mathematical parser, this means the unit vector string should be in simplest form)_
 ```js
-var V = require('veck')
+var v = require('veck')
 
-var myBigVector = V('3i+2j-8k')
-```
+// These are all the same vector
+var v1 = v(-2, 10, 2.3)
+var v2 = v('-2i+10j+2.3k')
+var v3 = v([-2,10,2.3])
+var v4 = v({
+  x: -2,
+  y: 10,
+  z: 2.3
+})
 
-### Method 2: Using an array
-Veck can also create a vector using an array. This is the preferred method for creating vectors with Veck.
-```js
-var V = require('veck')
+// These are also the same vector
+// Note: vectors created through arguments can only be created with 'new' 
+var u1 = new v(-2, 3, 1, 4, -10.2, 7.5, 1)
 
-var myBestVector = V([1,0,1,12,4,92,1,1])
-```
-### Method 3: Using an object
-Similar to an array, you can create a vector with an object. However, the object keys **MUST** be letters, order does not matter in terms of the object.
-```js
-var V = require('veck')
+var u2 = v([-2, 3, 1, 4, -10.2, 7.5, 1])
+var u3 = new v([-2, 3, 1, 4, -10.2, 7.5, 1])
 
-var myBestVector({i: 2.3, j: 10.2, k: 8.9})
-```
-### Method 4: Using arguments
-Veck can create a vector by accepting a multitude of arguments. Note: (This **MUST** be used with new. This will **NOT** work without creating a new Veck object
-```js
-var V = require('veck')
-
-var myCoolVector = new V(1,2,3)
-//Same as 1i+2j+3k
+var u4 = v({
+  a: -2,
+  b: 3,
+  c: 1,
+  d: 4,
+  e: -10.2,
+  f: 7.5,
+  g: 1
+})
+var u5 = new v({
+  a: -2,
+  b: 3,
+  c: 1,
+  d: 4,
+  e: -10.2,
+  f: 7.5,
+  g: 1
+})
+var u6 = v('-2a+3b+c+4d-10.2e+7.5f+g+2h+10i')
 ```
