@@ -1,0 +1,24 @@
+{
+  "name": "vecky",
+  "version": "0.0.1",
+  "description": "A MultiDimensional Vector math library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joe-tom/vecky.git"
+  },
+  "keywords": [
+    "Vector",
+    "Math",
+    "multidimensional-vector"
+  ],
+  "author": "Joe Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joe-tom/vecky/issues"
+  },
+  "homepage": "https://github.com/joe-tom/vecky#readme"
+}
