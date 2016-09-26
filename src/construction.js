@@ -1,6 +1,6 @@
 function Veck (vector) {
   if (!(this instanceof Veck)) {
-    return new Vecky(vector)
+    return new Veck(vector)
   } 
   var _this = this
   this.vector = []
@@ -39,9 +39,10 @@ function Veck (vector) {
 
   this.dimension = this.vector.length
 }
+global.Veck = Veck
 
 require('./utils')
 require('./scalarMath')
-require('./vecotrMath')
+require('./vectorMath')
 
 module.exports = Veck

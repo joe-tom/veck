@@ -25,10 +25,12 @@ describe('Veck', function () {
     })
   })
   describe('Vector Utils', function () {
-    it('should work by returning a string', function () {
-      var str = '3i+2j+4k'
-      var v1 = v(str)
-      assert.equal(str, v1.toString())
+    describe('toString', function () {
+      it('should work by returning a string', function () {
+        var str = '3i+2j+4k'
+        var v1 = v(str)
+        assert.equal(str, v1.toString())
+      })
     })
     describe('clone', function () {
       it('should have the same values', function () {
