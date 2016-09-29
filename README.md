@@ -41,26 +41,3 @@ v1.times(2)
 v1.equals(v([2,4,6]))
 //This is true!
 ```
-
-## Scalar Arithmetic
-
-### .divide(num)
-Divides every component in the vector by num, is the inverse of .multiply
-```js
-var v1 = v([2,4,6])
-
-v2 = v1.divide(2)
-// v2 is a vector with the value [1,2,3]
-```
-
-### .multiply(num)
-Multiplies every component in the vector by num
-```js
-var v1 = v([1,2,3])
-
-v2 = v1.multiply(2)
-// v2 is a vector with the value [2,4,6]
-```
-
-### .times(num)
-Alias of .mulitply
