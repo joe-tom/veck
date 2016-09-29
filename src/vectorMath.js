@@ -27,19 +27,34 @@ Veck.prototype.cross = function (vector) {
   var u = this.vector
   var v = vector.vector
   
-  var u1 = u[0]
-  var u2 = u[1]
-  var u3 = u[2]
+  var u1 = u[0] || 0
+  var u2 = u[1] || 0
+  var u3 = u[2] || 0
 
-  var v1 = v[0]
-  var v2 = v[1]
-  var v3 = v[2]
+  var v1 = v[0] || 0
+  var v2 = v[1] || 0
+  var v3 = v[2] || 0
 
   return new Veck([
     (u2 * v3) - (u3 * v2),
     (u3 * v1) - (u1 * v3),
     (u1 * v2) - (u2 * v1)
   ])
+}
+
+/**
+ * Returns the hadamard product of the current vector
+ * i.e. A ○ B = <a0 * b0, a1 * b1, .... an * bn>
+ * @param  {Veck} vector - the vector to do the hadamard product with
+ * @return {this}
+ */
+Veck.prototype.hadamard = function (vector) {
+  for(var i = 0, ii = Math.max(vector.dimension, this.dimension); i < ii; i++) {
+    this.vector[i] = (vector.vector[i] || 0) * (this.vector[i] || 0)
+  }
+
+  this.dimension = this.vector.length
+  return this
 }
 
 /**
@@ -64,13 +79,24 @@ Veck.prototype.proj = function (b) {
   return b.times(this.dot(b).divide(b.dot(b)))
 }
 
+/**
+ * Computes the normalized vector of the current vector, returns a new vector
+ * @return {Veck} - a new vector 
+ */
 Veck.prototype.normalize = function () {
+  var vec = this.clone()
   var mag = this.magnitude()
   for (var i = 0, ii = this.dimension; i < ii; i++) {
-    this.vector[i] = this.vector[i] / mag
+    vec.vector[i] = vec.vector[i] / mag
   }
+
+  return vec
 }
 
+/**
+ * Returns the magnitude / length of the current vector
+ * @return {Number} The magnitude
+ */
 Veck.prototype.magnitude = function () {
   var sum = 0
   for (var i = 0, ii = this.dimension; i < ii; i++) {

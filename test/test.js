@@ -46,4 +46,35 @@ describe('Veck', function () {
       })
     })
   })
+  describe('Multiplication', function () {
+    describe('Hadamard Product', function () {
+      it('should be the same', function () {
+        var v1 = v([1,2,2,1])
+        var v2 = v([1,2,2,1])
+        // 1+4+4+1 = 10
+        assert.deepStrictEqual(v1.hadamard(v2).vector,[1,4,4,1])
+      })
+      it('should be the work with different dimensions', function () {
+        var v1 = v([1,2,2,1])
+        var v2 = v([1,2,2,1,0])
+        // 1+4+4+1 = 10
+        assert.deepStrictEqual(v1.hadamard(v2).vector,[1,4,4,1,0])
+      })
+    })
+    describe('Dot Product', function () {
+      it('should be the same', function () {
+        var v1 = v([1,2,2,1])
+        var v2 = v([1,2,2,1])
+        // 1+4+4+1 = 10
+        assert.equal(v1.dot(v2),10)
+      })
+      it('should work with different dimensions', function () {
+        var v1 = v([1,2,2,1])
+        var v2 = v([1,2,2,1,0])
+        // 1+4+4+1+0 = 10
+        assert.equal(v1.dot(v2),10)
+
+      })
+    })
+  })
 })
