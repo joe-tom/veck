@@ -27,9 +27,23 @@ var u7 = new v('-2a+3b+c+4d-10.2e+7.5f+g+2h+10i')
 
 ## API
 ### Utils
-### .equals(vector)
-
-
+#### .toArray()
+Returns veck as an Array
+```js
+new v([1,2,3]).toArray() => [1,2,3]
+```
+#### .toString()
+Returns the vector as an ijk string, it will use more letters if need be.
+```js
+new v([1,2,3]).toString() => 'i+2j+3k'
+```
+#### .clone()
+Makes an identical copy of the current vector.
+#### .equals(vector)
+```js
+new v([1,2,3]).equals(new v([1,2,3]))
+// this is true
+```
 
 ### Vector Scalar Math
 #### .times(k), .multiply(k) _(alias)_
