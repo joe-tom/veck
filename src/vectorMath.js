@@ -1,3 +1,4 @@
+/* VECTOR ARITHMETIC */
 
 /**
  * Returns the dot product of the current vector and a provided vector
@@ -69,6 +70,20 @@ Veck.prototype.add = function (vector) {
   }
   return this
 }
+
+
+Veck.prototype.subtract = function (vector) {
+  for (var i = Math.max(vector.dimension,this.dimension); i--;) {
+    this.vector[i] = (this.vector[i] || 0) + (vector.vector[i] || 0)
+  }
+  return this
+  
+}
+
+
+
+
+/* VECTOR SPECIFIC FUNCTIONS */
 
 /**
  * Computes the projection of the provided vector onto the current vector

@@ -46,8 +46,8 @@ new v([1,2,3]).equals(new v([1,2,3]))
 ```
 
 ### Vector Scalar Math
-#### .times(k), .multiply(k) _(alias)_
-Performs a scalar multiplication on the current vector using the provided parameter, k. .multiply can also be used as an alias for this
+#### .times(k), .multiply(k) _(alias)_ .scale(k) _(alias)_
+Performs a scalar multiplication on the current vector using the provided parameter, k. .multiply() can also be used as an alias for this
 ```js
 var v1 = v([1,2,3])
 v1.times(2)
@@ -55,3 +55,22 @@ v1.times(2)
 v1.equals(v([2,4,6]))
 //This is true!
 ```
+#### .divide(k)
+Performs a scalar division on the current vector using the provided parameter, k. This is the inverse of .multiply
+```js
+var v1 = v([2,4,6])
+v1.divide(2)
+
+v1.equals(v([1,2,3]))
+//This is true!
+```
+### Vector Vector Math
+
+#### Hadamard Product .hadamard(vector)
+#### Cross Product .cross(vector)
+#### Dot Product .dot(vector)
+
+
+### Vector Utility
+#### .angle(vector)
+#### .normalize() .norm() _(alias)_

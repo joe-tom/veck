@@ -76,5 +76,27 @@ describe('Veck', function () {
 
       })
     })
+    describe('Cross Product', function () {
+      it('should work', function () {
+        var v1 = v([1,0,0])
+        var v2 = v([0,1,0])
+
+        assert.deepStrictEqual(v1.cross(v2).vector,[0,0,1])
+      })
+    })
+  })
+  describe('Addition', function () {
+    it('should work', function () {
+      var v1 = v([1,2,3])
+      var v2 = v([2,3,4])
+      assert.deepStrictEqual(v1.plus(v2).vector,[3,5,7])
+    })
+  })
+  describe('Substraction', function () {
+    it('should work', function () {
+      var v1 = v([1,2,3])
+      var v2 = v([2,3,4])
+      assert.deepStrictEqual(v2.minus(v1))
+    })
   })
 })
