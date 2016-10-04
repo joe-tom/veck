@@ -67,10 +67,22 @@ v1.equals(v([1,2,3]))
 ### Vector Vector Math
 
 #### Hadamard Product .hadamard(vector)
+Computes the hadamard product of the two vectors. This is simply a new vector with each component being the product of the parent components. i.e.
+```js
+var A = new v([1,2,3,4])
+var B = new v([5,6,7,8])
+
+A.hadamard(B)
+// => [5,12,21,28]
+// i.e. [A[0]*B[0], A[1]*B[1], A[2]*B[2], A[3]*B[3]] 
+```
 #### Cross Product .cross(vector)
+This is the normal cross product of the two vectors, only works with vectors of 3 Dimensions. It will throw an error if a vector higher than 3 is given.
 #### Dot Product .dot(vector)
-
-
+Computes the dot product of the two vectors.
 ### Vector Utility
 #### .angle(vector)
+Computes the angle between the two vectors
 #### .normalize() .norm() _(alias)_
+Normalizes the current vector, i.e. makes its magnitude one, but keeps it point in the same direction.
+
